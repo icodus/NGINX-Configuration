@@ -34,6 +34,7 @@ server {
 
     location ~ [^/]\.php(/|$) {
         limit_req zone=one burst=10;
+        include fastcgi.conf;
 
         fastcgi_split_path_info ^(.+?\.php)(/.*)$;
         fastcgi_index index.php;
