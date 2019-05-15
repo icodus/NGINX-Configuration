@@ -5,7 +5,7 @@ upstream php {
 server {
     listen 80;
     #listen 443 ssl http2;
-    server wordpress;
+    server_name wordpress;
     root /var/www/html;
     index index.php index.html;
     include restrictions.conf;
