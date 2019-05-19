@@ -11,13 +11,14 @@ server {
     listen 80;
     server_name wordpress;
     root /var/www/html;
-    index index.php;
     include restrictions.conf;
 
     rewrite /wp-admin$ $scheme;
 
-    location / {
-        alias /var/www/html
+    location ^~ / {
+        alias /var/www/html;
+
+        index index.php;
         try_files $uri $uri/ /index.php?$args;
     }
 
