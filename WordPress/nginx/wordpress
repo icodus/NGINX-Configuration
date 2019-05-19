@@ -2,10 +2,10 @@ upstream php {
     server unix:/var/run/php/php7.2-fpm.sock;
 }
 
-server {
-    server_name _;
-    return 302 $scheme://joshuablevins.net$request_uri;
-}
+#server {
+#    server_name _;
+#    return 302 $scheme://joshuablevins.net$request_uri;
+#}
 
 server {
     listen 80;
