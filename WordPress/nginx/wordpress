@@ -10,11 +10,16 @@ upstream php {
 server {
     listen 80;
     server_name wordpress;
-    alias /var/www/html;
+    root /var/www/html;
     index index.php;
     include restrictions.conf;
 
     rewrite /wp-admin$ $scheme;
+
+    location / {
+        alias /var/www/html
+        try_files $uri $uri/ /index.php?$args;
+    }
 
     location ~* \.(?:ico|gif|jp?g|png|webp|svg)$ {
         expires 30d;
@@ -30,10 +35,6 @@ server {
         add_header Cache-Control "public";
         access_log off;
         log_not_found off;
-    }
-
-    location / {
-        try_files $uri $uri/ /index.php?$args;
     }
 
     location ~ \.php$ {
