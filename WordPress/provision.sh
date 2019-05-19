@@ -61,7 +61,7 @@ systemctl restart mysql
 
 sudo mysql --user=root --password=password <<EOF
 CREATE DATABASE IF NOT EXISTS wordpress;
-CREATE USER 'jblevins'@'%' IDENTIFIED BY 'password';
+CREATE USER 'root'@'%' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON *.* TO 'pma'@'%' WITH GRANT OPTION;
 EOF
 
