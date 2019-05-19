@@ -10,7 +10,7 @@ upstream php {
 server {
     listen 80;
     server_name wordpress;
-    root /var/www/html;
+    alias /var/www/html;
     index index.php;
     include restrictions.conf;
 
@@ -40,7 +40,7 @@ server {
         limit_req zone=one burst=10;
         include fastcgi.conf;
 
-        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        fastcgi_split_path_info ^(.+?\.php)(/.*)$;
         fastcgi_index index.php;
         fastcgi_buffers 32 32k;
         fastcgi_buffer_size 32k;
