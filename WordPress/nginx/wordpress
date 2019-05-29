@@ -2,14 +2,14 @@ upstream php {
     server unix:/var/run/php/php7.2-fpm.sock;
 }
 
-#uncomment if you have ssl set up
-#remember to change domains and domain to your domain names
-#server {
-#    listen 80;
-#    listen[::]:80;
-#    server_name domains;
-#    return 301 https://domain.com$request_uri;
-#}
+# uncomment if you have ssl set up
+# remember to change domains and domain to your domain names
+# server {
+#     listen 80;
+#     listen[::]:80;
+#     server_name domains;
+#     return 301 https://domain.com$request_uri;
+# }
 
 server {
     listen 80;
